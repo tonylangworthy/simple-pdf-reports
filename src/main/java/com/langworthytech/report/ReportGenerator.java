@@ -14,15 +14,9 @@ public class ReportGenerator {
 
         Document doc = new Document(PageSize.A4);
 
-//        String outputFilename = "/Users/tonylangworthy/Documents/dev-files/simple-invoicing/sample.pdf";
-//
         PdfWriter.getInstance(doc, new FileOutputStream(outputFilepath));
-        float width = doc.getPageSize().getWidth();
-        float height = doc.getPageSize().getHeight();
-
         doc.open();
         createTable(doc);
-
         doc.close();
     }
 
@@ -38,10 +32,6 @@ public class ReportGenerator {
         table.setTotalWidth(width - 72);
         table.setLockedWidth(true);
 
-        PdfPCell cell = new PdfPCell();
-//        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-//        cell.setColspan(columnDefinitionSize.length);
-//        table.addCell(cell);
         table.setHeaderRows(1);
         table.addCell("vin");
         table.addCell("year");
@@ -65,6 +55,5 @@ public class ReportGenerator {
         table.addCell(new Phrase(vehicle.getMake(), font8));
         table.addCell(new Phrase(vehicle.getModel(), font8));
         table.addCell(new Phrase(vehicle.getCity() + ", " + vehicle.getState(), font8));
-
     }
 }
