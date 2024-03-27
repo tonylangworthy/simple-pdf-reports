@@ -10,8 +10,13 @@ import java.io.IOException;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
+
+        if(args.length < 1) {
+            System.err.println("Please specify your desired output path as an argument.");
+            System.exit(1);
+        }
+
         ReportGenerator playground = new ReportGenerator();
 
         try {
